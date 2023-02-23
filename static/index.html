@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>reCAPTCHA v3 generate token</title>
+	<script src="https://www.google.com/recaptcha/api.js?render=your_site_key"></script>
+	<script>
+        function onSubmit(token) {
+            console.log('onSubmit', token);
+            document.getElementById("token").value = token;
+            navigator.clipboard.writeText(token);
+        }
+	</script>
+</head>
+<body>
+	<h1>reCAPTCHA v3 Example</h1>
+    <p>Client token for copy: <input id="token" type="text"></p>
+    <button class="g-recaptcha" 
+            data-sitekey="your_site_key" 
+            data-callback='onSubmit' 
+            data-action='submit'>Generate token than copy</button>
+</body>
+</html>
